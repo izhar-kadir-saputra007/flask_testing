@@ -1,13 +1,10 @@
+import os
 from flask import Flask
+app = Flask(__name__)  # Nama variabel HARUS 'app'
 
-# 1. Inisialisasi Flask
-app = Flask(__name__)
-
-# 2. Definisi Route
 @app.route('/')
 def home():
-    return "Hello World!"
+    return "Hello Railway"
 
-# 3. Jalankan Aplikasi
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
